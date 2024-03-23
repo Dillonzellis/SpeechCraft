@@ -1,7 +1,36 @@
+import { Button } from "@/components/ui/button";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
+import { Loader } from "lucide-react";
+
 export const Header = () => {
   return (
-    <header className="flex justify-center items-center w-full h-20 border-t border-gray-200">
-      <p className="text-gray-500 text-sm">Header</p>
+    <header className="w-full h-20 border-b-2 border-slate-200 px-4">
+      <div className="lg:max-w-screen-lg mx-auto flex items-center justify-between h-full">
+        <div className="pt-8 pl-4 pb-7 flex items-center gap-x-3">
+          <div>Icon</div>
+          <h1 className="text-2xl font-bold">Logo</h1>
+        </div>
+        <ClerkLoading>
+          <Loader className="h-5 w-5 text-muted-foreground animate-spin" />
+        </ClerkLoading>
+        <ClerkLoaded>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+          <SignedOut>
+            <SignInButton mode="modal" afterSignInUrl="" afterSignUpUrl="">
+              <Button>Login</Button>
+            </SignInButton>
+          </SignedOut>
+        </ClerkLoaded>
+      </div>
     </header>
   );
 };
