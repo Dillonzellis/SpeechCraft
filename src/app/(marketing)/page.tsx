@@ -21,8 +21,13 @@ export default function Home() {
         className="object-cover w-[240px] h-[240px] lg:w-[424px] lg:h-[424px] pb-8 lg:pb-0 rounded-xl"
       />
       <div className="flex flex-col items-center gap-y-8">
-        <h1 className="text-xl lg:text-3xl font-bold text-neutral-600 max-w-[480px] text-center">
-          Level up and improve your language skills with SpeechCraft.
+        <h1 className="text-xl font-bold text-neutral-600 max-w-[480px] text-center">
+          Level up and improve your language skills with{" "}
+          <span>
+            {/* <Image src="/sword.svg" height={24} width={24} alt="" /> */}
+
+            <span className="italic font-extrabold">SpeechCraft.</span>
+          </span>
         </h1>
         <div className="flex flex-col items-center gap-y-3 max-w-[330px] w-full">
           <ClerkLoading>
