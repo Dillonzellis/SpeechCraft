@@ -2,11 +2,11 @@
 
 import { CourseCard } from "./CourseCard";
 
-import { courses } from "@/db/schema";
+import { courses, userProgress } from "@/db/schema";
 
 interface ListProps {
   courses: (typeof courses.$inferSelect)[];
-  activeCourseId?: number;
+  activeCourseId?: typeof userProgress.$inferSelect.activeCourseId;
 }
 
 export const CoursesList = ({ courses, activeCourseId }: ListProps) => {
