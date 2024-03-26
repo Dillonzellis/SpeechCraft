@@ -18,10 +18,14 @@ export default async function LearnPage() {
   return (
     <div className="flex gap-[48px] px-6">
       <FeedWrapper>
-        <LearnHeader title="Learn Spanish" />
+        <LearnHeader title={userProgress.activeCourse.title} />
       </FeedWrapper>
       <StickyWrapper>
-        <UserProgress points={100} hearts={5} />
+        <UserProgress
+          activeCourse={userProgress.activeCourse}
+          points={userProgress.points}
+          hearts={userProgress.hearts}
+        />
       </StickyWrapper>
     </div>
   );

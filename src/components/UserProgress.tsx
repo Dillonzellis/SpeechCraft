@@ -1,20 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { courses } from "@/db/schema";
 
 interface UserProgressProps {
+  activeCourse: typeof courses.$inferSelect;
   hearts: number;
   points: number;
 }
 
-export const UserProgress = ({ points, hearts }: UserProgressProps) => {
+export const UserProgress = ({
+  activeCourse,
+  points,
+  hearts,
+}: UserProgressProps) => {
   return (
     <div className="flex items-center justify-between gap-x-2 w-full">
       <Link href="/courses">
         <Button variant="ghost">
           <Image
-            src="/Spain.svg"
-            alt=""
+            src={activeCourse.imageSrc}
+            alt={activeCourse.title}
             className="rounded-md border"
             width={32}
             height={32}
