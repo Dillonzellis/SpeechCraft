@@ -30,7 +30,7 @@ export const getUserProgress = cache(async () => {
 });
 
 export const getUnits = cache(async () => {
-  const { userId } = await auth();
+  const { userId } = auth();
   const userProgress = await getUserProgress();
 
   if (!userId || !userProgress?.activeCourseId) {
@@ -56,7 +56,7 @@ export const getUnits = cache(async () => {
       },
     },
   });
-
+  // Fix this double loop
   const normalizedData = data.map((unit) => {
     const lessonsWithCompletedStatus = unit.lessons.map((lesson) => {
       if (lesson.challenges.length === 0) {
